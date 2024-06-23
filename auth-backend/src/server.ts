@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-import config from './config/config';
-import { connect } from './config/database';
+import config from '@config/config';
+import { connect } from '@config/database';
 import { errorHandler } from '@middlewares/error-handler';
 
 const app = express();
