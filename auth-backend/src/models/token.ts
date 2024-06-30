@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
-import User from './user';
+import User from '@models/user';
 
 export interface TokenModel extends Document {
   user: Schema.Types.ObjectId;
