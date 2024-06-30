@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
-import { Schema, Model, Document } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
 const SALT_WORK_FACTOR = 10;
@@ -51,6 +50,4 @@ userSchema.methods.comparePassword = async function (
 
 userSchema.plugin(uniqueValidator); // Validator for unique fields.
 
-const User: Model<UserModel> = mongoose.model<UserModel>('User', userSchema); // Create the model.
-
-export default User;
+export default mongoose.model<UserModel>('user', userSchema);
