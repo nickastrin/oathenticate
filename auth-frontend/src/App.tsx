@@ -8,7 +8,7 @@ import 'material-symbols';
 
 function App() {
   return (
-    <div className="flex flex-row h-full relative">
+    <div className="flex flex-row h-screen relative">
       <Sidebar />
 
       <div className="p-6 size-full">
