@@ -1,14 +1,9 @@
+import { UserModel } from '@interfaces/interfaces';
 import bcrypt from 'bcrypt';
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
 const SALT_WORK_FACTOR = 10;
-
-export interface UserModel extends Document {
-  email: string;
-  password: string;
-  comparePassword: (candidatePassword: string) => Promise<boolean>;
-}
 
 const userSchema = new Schema<UserModel>(
   {

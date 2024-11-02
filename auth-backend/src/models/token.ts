@@ -1,15 +1,7 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 import User from '@models/user';
-
-export interface TokenModel extends Document {
-  user: Schema.Types.ObjectId;
-  token: string;
-  expiresAt: Date;
-  createdAt?: Date;
-  revokedAt?: Date;
-  replacedBy?: string;
-}
+import { TokenModel } from '@interfaces/interfaces';
 
 const tokenSchema = new Schema<TokenModel>({
   user: {
