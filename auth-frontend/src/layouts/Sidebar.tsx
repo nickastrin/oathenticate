@@ -1,4 +1,4 @@
-import { NavigationButton } from '@/components/navigation/NavigationButton';
+import { NavigationButton } from "@/components/navigation/NavigationButton";
 
 export function Sidebar() {
   return (

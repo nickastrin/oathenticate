@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from '@/pages/Home';
-import { Login } from './pages/Login';
-import './App.scss';
-import { Sidebar } from './layouts/Sidebar';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "@/pages/Home";
+import { Login } from "./pages/Login";
+import "./App.scss";
+import { Sidebar } from "./layouts/Sidebar";
 
-import 'material-symbols';
+import "material-symbols";
 
 function App() {
   return (
-    <div className="flex flex-row h-full relative">
+    <div className="flex flex-row h-screen relative">
       <Sidebar />
 
       <div className="p-6 size-full">

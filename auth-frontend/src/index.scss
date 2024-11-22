@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -29,8 +31,6 @@ a {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -51,14 +51,14 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 
-  &:hover {
-    border-color: #646cff;
-  }
-
-  &:focus,
-  &:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+  //&:hover {
+  //  border-color: #646cff;
+  //}
+  //
+  //&:focus,
+  //&:focus-visible {
+  //  outline: 4px auto -webkit-focus-ring-color;
+  //}
 }
 
 @media (prefers-color-scheme: light) {
