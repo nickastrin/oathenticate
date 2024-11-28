@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
-import { Schema } from 'mongoose';
-import config from '@config/config';
-import { addMinutes } from '@utils/add-minutes';
-import { Token } from '@models/models';
-import { TokenModel, TokenPair } from '@interfaces/interfaces';
+import jwt from "jsonwebtoken";
+import { Schema } from "mongoose";
+import config from "@config/config";
+import { addMinutes } from "@utils/add-minutes";
+import { Token } from "@models/models";
+import { TokenModel, TokenPair } from "@interfaces/interfaces";
 
 // Expiration dates (in minutes).
 const JWT_EXPIRATION = 2;
@@ -20,7 +20,7 @@ export class TokenService {
   }
 
   public async generateRefreshToken(
-    userId: Schema.Types.ObjectId
+    userId: Schema.Types.ObjectId,
   ): Promise<TokenModel> {
     try {
       const refreshToken = jwt.sign({ id: userId }, config.REFRESH_SECRET, {
@@ -58,14 +58,14 @@ export class TokenService {
   public async getToken(token: string): Promise<TokenModel> {
     const refreshToken = await this.tokenRepository
       .findOne({ token: token })
-      .populate('user');
+      .populate("user");
 
     if (!refreshToken) {
-      throw new Error('Token not found');
+      throw new Error("Token not found");
     }
 
     if (refreshToken.revokedAt || refreshToken.expiresAt < new Date()) {
-      throw new Error('Invalid token');
+      throw new Error("Invalid token");
     }
 
     return refreshToken;
@@ -81,12 +81,12 @@ export class TokenService {
         // So revoke all tokens and throw exception.
         if (currentToken.replacedBy) {
           await this.revokeAllTokens(currentToken.user);
-          throw new Error('Illegal token');
+          throw new Error("Illegal token");
         }
 
         // Generate new refresh token.
         const newRefreshToken = await this.generateRefreshToken(
-          currentToken.user
+          currentToken.user,
         );
         await newRefreshToken.save();
 
@@ -104,7 +104,7 @@ export class TokenService {
         };
       }
 
-      throw new Error('Token not found');
+      throw new Error("Token not found");
     } catch (error) {
       console.error(error);
       throw error;

@@ -1,7 +1,7 @@
-import mongoose, { Schema } from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
-import User from '@models/user';
-import { TokenModel } from '@interfaces/interfaces';
+import mongoose, { Schema } from "mongoose";
+import uniqueValidator from "mongoose-unique-validator";
+import User from "@models/user";
+import { TokenModel } from "@interfaces/interfaces";
 
 const tokenSchema = new Schema<TokenModel>({
   user: {
@@ -28,4 +28,4 @@ const tokenSchema = new Schema<TokenModel>({
 
 tokenSchema.plugin(uniqueValidator);
 
-export default mongoose.model<TokenModel>('token', tokenSchema);
+export default mongoose.model<TokenModel>("token", tokenSchema);

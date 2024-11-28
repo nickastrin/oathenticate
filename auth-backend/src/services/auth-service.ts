@@ -1,21 +1,21 @@
-import { Schema } from 'mongoose';
-import { TokenService } from '@services/services';
-import { TokenPair, UserModel } from '@interfaces/interfaces';
-import { User, Token } from '@models/models';
+import { Schema } from "mongoose";
+import { TokenService } from "@services/services";
+import { TokenPair, UserModel } from "@interfaces/interfaces";
+import { User, Token } from "@models/models";
 
 export class AuthenticationService {
   private tokenService: TokenService;
 
   constructor(
     private userRepository: typeof User,
-    tokenRepository: typeof Token
+    tokenRepository: typeof Token,
   ) {
     this.tokenService = new TokenService(tokenRepository);
   }
 
   public async authenticate(
     email: string,
-    password: string
+    password: string,
   ): Promise<TokenPair> {
     try {
       const user: UserModel | null = await this.userRepository
@@ -24,15 +24,15 @@ export class AuthenticationService {
 
       // Check that the user exists and that the password is valid.
       if (!user || !(await user.comparePassword(password))) {
-        throw new Error('Invalid email or password.');
+        throw new Error("Invalid email or password.");
       }
 
       // Generate the tokens.
       const accessToken = this.tokenService.generateAccessToken(
-        user._id as Schema.Types.ObjectId
+        user._id as Schema.Types.ObjectId,
       );
       const refreshToken = await this.tokenService.generateRefreshToken(
-        user._id as Schema.Types.ObjectId
+        user._id as Schema.Types.ObjectId,
       );
 
       return {
@@ -52,7 +52,7 @@ export class AuthenticationService {
         .exec();
 
       if (duplicate) {
-        throw new Error('User already exists.');
+        throw new Error("User already exists.");
       }
 
       const newUser = await this.userRepository.create({ ...user });

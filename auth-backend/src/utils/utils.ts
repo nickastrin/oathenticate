@@ -1,1 +1,1 @@
-export { addMinutes } from './add-minutes';
+export { addMinutes } from "./add-minutes";
