@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, Response } from "express";
 
 export function errorHandler(
   err: Error,
   _: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void {
   if (!err) {
     next();

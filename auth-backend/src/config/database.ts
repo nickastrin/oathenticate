@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import config from '@config/config';
+import mongoose from "mongoose";
+import config from "@config/config";
 
 const uri: string = config.MONGO_URI;
 
@@ -8,9 +8,9 @@ const connect = async () => {
     // Establish connection to the db
     await mongoose.connect(uri, {} as mongoose.ConnectOptions);
 
-    console.log('Connected to MongoDB...');
+    console.log("Connected to MongoDB...");
   } catch (error) {
-    let message = 'Unknown error';
+    let message = "Unknown error";
 
     if (error instanceof Error) {
       message = error.message;

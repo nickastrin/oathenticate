@@ -1,7 +1,7 @@
-import { UserModel } from '@interfaces/interfaces';
-import bcrypt from 'bcrypt';
-import mongoose, { Schema } from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
+import { UserModel } from "@interfaces/interfaces";
+import bcrypt from "bcrypt";
+import mongoose, { Schema } from "mongoose";
+import uniqueValidator from "mongoose-unique-validator";
 
 const SALT_WORK_FACTOR = 10;
 
@@ -17,12 +17,12 @@ const userSchema = new Schema<UserModel>(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
   // Hashing should only occur if the password has been changed.
-  if (this.isModified('password') || this.isNew) {
+  if (this.isModified("password") || this.isNew) {
     try {
       const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
       this.password = await bcrypt.hash(this.password, salt);
@@ -38,11 +38,11 @@ userSchema.pre('save', async function (next) {
 
 // Compare candidate hash with saved hash.
 userSchema.methods.comparePassword = async function (
-  candidatePassword: string
+  candidatePassword: string,
 ): Promise<boolean> {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
 userSchema.plugin(uniqueValidator); // Validator for unique fields.
 
-export default mongoose.model<UserModel>('user', userSchema);
+export default mongoose.model<UserModel>("user", userSchema);
