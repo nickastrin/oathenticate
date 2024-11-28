@@ -1,17 +1,13 @@
 import { Schema } from "mongoose";
 import { TokenService } from "@services/services";
 import { TokenPair, UserModel } from "@interfaces/interfaces";
-import { User, Token } from "@models/models";
+import { User } from "@models/models";
 
 export class AuthenticationService {
-  private tokenService: TokenService;
-
   constructor(
     private userRepository: typeof User,
-    tokenRepository: typeof Token,
-  ) {
-    this.tokenService = new TokenService(tokenRepository);
-  }
+    private tokenService: TokenService,
+  ) {}
 
   public async authenticate(
     email: string,
