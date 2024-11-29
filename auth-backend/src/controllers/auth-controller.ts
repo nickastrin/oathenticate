@@ -4,11 +4,7 @@ import { setTokenCookie } from "@utils/utils";
 import { Request, Response, NextFunction } from "express";
 
 export class AuthenticationController {
-  private authService: AuthenticationService;
-
-  constructor(authService: AuthenticationService) {
-    this.authService = authService;
-  }
+  constructor(private authService: AuthenticationService) {}
 
   public async register(req: Request, res: Response, next: NextFunction) {
     const data: UserModel = req.body;
