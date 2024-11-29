@@ -41,6 +41,15 @@ export class AuthenticationService {
     }
   }
 
+  public async logout(refreshToken: string) {
+    try {
+      await this.tokenService.revokeToken(refreshToken);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   public async createUser(user: UserModel) {
     try {
       const duplicate = await this.userRepository
