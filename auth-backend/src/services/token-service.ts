@@ -44,6 +44,17 @@ export class TokenService {
     }
   }
 
+  public async revokeToken(token: string): Promise<void> {
+    try {
+      await this.tokenRepository
+        .findOneAndUpdate({ token: token }, { revokedAt: new Date() })
+        .exec();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   public async revokeAllTokens(userId: Schema.Types.ObjectId): Promise<void> {
     try {
       await this.tokenRepository
