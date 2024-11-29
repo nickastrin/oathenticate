@@ -31,4 +31,15 @@ export class AuthenticationController {
       })
       .catch(next);
   }
+
+  public async logout(req: Request, res: Response, next: NextFunction) {
+    const token = req.cookies?.refreshToken;
+
+    await this.authService
+      .logout(token)
+      .then(() => {
+        res.json({ message: "User logged out successfully" });
+      })
+      .catch(next);
+  }
 }
