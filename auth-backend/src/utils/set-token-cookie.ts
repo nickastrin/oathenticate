@@ -8,5 +8,5 @@ export function setTokenCookie(res: Response, token: string) {
     secure: false,
   };
 
-  res.cookie("refreshToken", token, cookieOptions);
+  res.cookie("refresh-token", token, cookieOptions);
 }
