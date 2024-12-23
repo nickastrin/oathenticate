@@ -2,7 +2,7 @@ import axios from "axios";
 import { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from "axios";
 import { AxiosRequestConfigWithRetries, TokenResponse } from "./types";
 
-const TOKEN_KEY = "access-token";
+const TOKEN_KEY = "accessToken";
 const MAX_RETRIES = 3;
 const TIMEOUT = 10000;
 
