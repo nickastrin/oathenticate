@@ -1,10 +1,10 @@
 export class APIError extends Error {
   constructor(
     message: string,
-    public status: number,
+    public statusCode: number,
   ) {
     super(message);
-    this.status = status;
+    this.statusCode = statusCode;
 
     Object.setPrototypeOf(this, new.target.prototype);
   }
