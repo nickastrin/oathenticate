@@ -1,7 +1,8 @@
+import { APIError } from "@interfaces/errors/api-error";
 import { NextFunction, Request, Response } from "express";
 
 export function errorHandler(
-  err: Error,
+  err: APIError,
   _: Request,
   res: Response,
   next: NextFunction,
@@ -10,5 +11,6 @@ export function errorHandler(
     next();
   } // If there is no error, call next.
 
-  res.status(500).send(err.message);
+  const status = err.statusCode || 500;
+  res.status(status).send(err.message);
 }
