@@ -5,7 +5,11 @@ import { NextFunction, Request, Response } from "express";
 export class TokenController {
   constructor(private tokenService: TokenService) {}
 
-  public async renewToken(req: Request, res: Response, next: NextFunction) {
+  public renewToken = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ) => {
     const token = req.cookies?.refreshToken;
 
     // Call service to refresh token and store it in cookie.
@@ -16,5 +20,5 @@ export class TokenController {
         res.json(accessToken);
       })
       .catch(next);
-  }
+  };
 }
