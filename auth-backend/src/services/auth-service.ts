@@ -2,6 +2,7 @@ import { Schema } from "mongoose";
 import { TokenService } from "@services/services";
 import { TokenPair, UserModel } from "@interfaces/interfaces";
 import { User } from "@models/models";
+import { ConflictError, UnauthorizedError } from "@interfaces/errors/errors";
 
 export class AuthenticationService {
   constructor(
@@ -20,7 +21,7 @@ export class AuthenticationService {
 
       // Check that the user exists and that the password is valid.
       if (!user || !(await user.comparePassword(password))) {
-        throw new Error("Invalid email or password.");
+        throw new UnauthorizedError("Invalid email or password.");
       }
 
       // Generate the tokens.
@@ -36,18 +37,13 @@ export class AuthenticationService {
         refreshToken: refreshToken.token,
       };
     } catch (error) {
-      console.error(error); // TODO: This should be replaced by a logger.
+      console.error(error);
       throw error;
     }
   }
 
   public async logout(refreshToken: string) {
-    try {
-      await this.tokenService.revokeToken(refreshToken);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+    await this.tokenService.revokeToken(refreshToken);
   }
 
   public async createUser(user: UserModel) {
@@ -57,7 +53,7 @@ export class AuthenticationService {
         .exec();
 
       if (duplicate) {
-        throw new Error("User already exists.");
+        throw new ConflictError("User already exists.");
       }
 
       const newUser = await this.userRepository.create({ ...user });

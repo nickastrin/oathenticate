@@ -6,7 +6,7 @@ import { Request, Response, NextFunction } from "express";
 export class AuthenticationController {
   constructor(private authService: AuthenticationService) {}
 
-  public async register(req: Request, res: Response, next: NextFunction) {
+  public register = async (req: Request, res: Response, next: NextFunction) => {
     const data: UserModel = req.body;
 
     await this.authService
@@ -15,9 +15,13 @@ export class AuthenticationController {
         res.json({ message: "User created successfully" });
       })
       .catch(next);
-  }
+  };
 
-  public async authenticate(req: Request, res: Response, next: NextFunction) {
+  public authenticate = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ) => {
     const { email, password } = req.body;
 
     await this.authService
@@ -30,9 +34,9 @@ export class AuthenticationController {
         });
       })
       .catch(next);
-  }
+  };
 
-  public async logout(req: Request, res: Response, next: NextFunction) {
+  public logout = async (req: Request, res: Response, next: NextFunction) => {
     const token = req.cookies?.refreshToken;
 
     await this.authService
@@ -41,5 +45,5 @@ export class AuthenticationController {
         res.json({ message: "User logged out successfully" });
       })
       .catch(next);
-  }
+  };
 }

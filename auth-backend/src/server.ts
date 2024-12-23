@@ -1,9 +1,10 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
 import config from "@config/config";
+
 import { connect } from "@config/database";
+import { authRoutes, protectedRoutes } from "@routes/routes";
 import { errorHandler } from "@middlewares/error-handler";
 
 const app = express();
@@ -27,8 +28,8 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
 
-app.post("/api/test", (_, res) => {
-  res.send("Hello World!");
-});
+// Routes
+app.use("/auth", authRoutes);
+app.use("/protected", protectedRoutes);
 
 app.use(errorHandler);
