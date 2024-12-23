@@ -8,7 +8,7 @@ const TIMEOUT = 10000;
 
 // Create new axios instance with custom config
 const api: AxiosInstance = axios.create({
-  baseURL: process.env.BASE_API_URL,
+  baseURL: import.meta.env.VITE_BASE_API_URI,
   timeout: TIMEOUT,
   headers: {
     "Content-Type": "application/json",
