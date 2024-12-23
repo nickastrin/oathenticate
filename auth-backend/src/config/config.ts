@@ -13,7 +13,7 @@ if (environment === "development") {
   dotenv.config();
 }
 
-interface IConfig {
+interface Config {
   PORT: string;
   MONGO_URI: string;
   JWT_SECRET: string;
@@ -21,7 +21,7 @@ interface IConfig {
   FRONT_BASE_URI: string;
 }
 
-const config: IConfig = {
+const config: Config = {
   PORT: process.env.PORT ?? "5000",
   MONGO_URI: process.env.MONGO_URI ?? "",
   JWT_SECRET: process.env.JWT_SECRET ?? "R4ND0MP4SSW0RD",
