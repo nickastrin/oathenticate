@@ -17,7 +17,7 @@ export class TokenController {
       .renewToken(token)
       .then(({ accessToken, refreshToken }) => {
         setTokenCookie(res, refreshToken);
-        res.json({ data: accessToken });
+        res.json({ data: { token: accessToken } });
       })
       .catch(next);
   };
