@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import config from "@config/config";
 
 import { connect } from "@config/database";
-import { authRoutes } from "@routes/routes";
+import { authRoutes, protectedRoutes } from "@routes/routes";
 import { errorHandler } from "@middlewares/error-handler";
 
 const app = express();
@@ -30,5 +30,6 @@ app.listen(PORT, () => {
 
 // Routes
 app.use("/auth", authRoutes);
+app.use("/protected", protectedRoutes);
 
 app.use(errorHandler);

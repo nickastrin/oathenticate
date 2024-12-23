@@ -11,7 +11,7 @@ export function verifyAuthentication(
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader?.startsWith("Bearer ")) {
-      throw new UnauthorizedError("Missing Bearer token.");
+      throw new UnauthorizedError("Missing access token.");
     }
 
     const accessToken = authHeader.split(" ")[1];
