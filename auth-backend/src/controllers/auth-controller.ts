@@ -30,7 +30,9 @@ export class AuthenticationController {
         setTokenCookie(res, refreshToken ?? "");
         res.json({
           message: "User logged in successfully",
-          token: accessToken,
+          data: {
+            token: accessToken,
+          },
         });
       })
       .catch(next);

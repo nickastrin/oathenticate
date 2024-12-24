@@ -19,6 +19,6 @@ router.post("/login", authenticationController.authenticate);
 router.post("/logout", authenticationController.logout);
 router.post("/register", authenticationController.register);
 
-router.get("/renewal", tokenController.renewToken);
+router.post("/renewal", tokenController.renewToken);
 
 export default router;
