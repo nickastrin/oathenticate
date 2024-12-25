@@ -1,25 +1,50 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import clsx from "clsx";
 
 interface NavigationButtonProps {
+  path: string;
   icon: string;
   label: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export function NavigationButton({
+  path,
   icon,
   label,
   onClick,
 }: NavigationButtonProps) {
   return (
-    <button
-      className="group flex flex-col items-center gap-1 w-20 bg-transparent hover:border-transparent px-3 py-1"
-      onClick={onClick}
+    <NavLink
+      to={path}
+      className={clsx(
+        "group flex flex-col place-items-center w-20 gap-1",
+        "px-3 py-1 bg-transparent hover:border-transparent"
+      )}
+      onClick={(e) => onClick?.(e)}
     >
-      <span className="w-full rounded-full material-symbols-rounded py-1 group-hover:bg-zinc-700">
-        {icon}
-      </span>
-      <span className="text-xs font-medium"> {label}</span>
-    </button>
+      {({ isActive }) => (
+        <>
+          <div
+            className={clsx(
+              "flex flex-col py-1",
+              "rounded-full text-center w-full",
+              { "bg-primary-dark": isActive },
+              { "group-hover:bg-zinc-700": !isActive }
+            )}
+          >
+            <span
+              className={clsx("material-symbols-rounded", {
+                "text-primary-light": isActive,
+              })}
+            >
+              {icon}
+            </span>
+          </div>
+          <span className="text-xs font-medium">{label}</span>
+        </>
+      )}
+    </NavLink>
   );
 }
