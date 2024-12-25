@@ -15,6 +15,10 @@ export default {
         "dark": "#1F282D",
         "darker": "#0D1316",
       },
+      fontFamily: {
+        "work-sans": ["Work Sans", "sans-serif"],
+        "montserrat": ["Montserrat", "sans-serif"],
+      },
     },
   },
   plugins: [],
