@@ -6,15 +6,20 @@ export function Sidebar() {
       <div className="grid gap-8 place-items-center mb-auto">
         <div className="font-montserrat font-extrabold">
           <span className="tracking-widest">OATH</span>
-          <span className="text-primary-light">.</span>
+          <span className="text-primary-light"> .</span>
         </div>
 
-        <NavigationButton icon="home" label="Home" onClick={() => {}} />
-        <NavigationButton icon="settings" label="Settings" onClick={() => {}} />
-        <NavigationButton icon="groups" label="About" onClick={() => {}} />
+        <NavigationButton path="/" icon="home" label="Home" />
+        <NavigationButton path="/settings" icon="settings" label="Settings" />
+        <NavigationButton path="/about" icon="groups" label="About" />
       </div>
 
-      <NavigationButton icon="logout" label="Logout" onClick={() => {}} />
+      <NavigationButton
+        path="/logout"
+        icon="logout"
+        label="Logout"
+        onClick={() => {}}
+      />
     </div>
   );
 }
