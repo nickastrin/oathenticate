@@ -14,12 +14,7 @@ export function Sidebar() {
         <NavigationButton path="/about" icon="groups" label="About" />
       </div>
 
-      <NavigationButton
-        path="/logout"
-        icon="logout"
-        label="Logout"
-        onClick={() => {}}
-      />
+      <NavigationButton path="login" icon="login" label="Login" />
     </div>
   );
 }
