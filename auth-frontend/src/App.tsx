@@ -9,16 +9,16 @@ import "material-symbols";
 function App() {
   return (
     <div className="flex flex-row h-screen relative">
-      <Sidebar />
+      <BrowserRouter>
+        <Sidebar />
 
-      <div className="p-6 size-full">
-        <BrowserRouter>
+        <div className="p-6 size-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
           </Routes>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
