@@ -8,7 +8,7 @@ import "./App.scss";
 
 function App() {
   return (
-    <div className="flex flex-col md:flex-row h-screen relative">
+    <div className="flex flex-col md:flex-row size-full relative overflow-hidden">
       <BrowserRouter>
         <div className="hidden md:flex">
           <Sidebar />
@@ -18,7 +18,7 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="relative size-full overflow-auto p-6">
+        <div className="relative size-full p-6 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
