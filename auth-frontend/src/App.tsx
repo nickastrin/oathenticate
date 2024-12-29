@@ -1,11 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "@/pages/Home";
 import { Login } from "./pages/Login";
-import "./App.scss";
 import { Sidebar } from "./layouts/Sidebar";
-
-import "material-symbols";
 import { Navbar } from "./layouts/Navbar";
+import "material-symbols";
+import "./App.scss";
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="p-6 size-full">
+        <div className="relative size-full overflow-auto p-6">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
