@@ -5,12 +5,19 @@ import "./App.scss";
 import { Sidebar } from "./layouts/Sidebar";
 
 import "material-symbols";
+import { Navbar } from "./layouts/Navbar";
 
 function App() {
   return (
-    <div className="flex flex-row h-screen relative">
+    <div className="flex flex-col md:flex-row h-screen relative">
       <BrowserRouter>
-        <Sidebar />
+        <div className="hidden md:flex">
+          <Sidebar />
+        </div>
+
+        <div className="md:hidden">
+          <Navbar />
+        </div>
 
         <div className="p-6 size-full">
           <Routes>
