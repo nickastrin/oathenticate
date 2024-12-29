@@ -1,35 +1,43 @@
-import { authService } from "@/features/authentication/services/auth-service";
-import { useState } from "react";
+import { Logo } from "@/components/generics/generics";
+import { LoginForm } from "@/features/authentication/components/LoginForm";
+import clsx from "clsx";
+
+import code from "@/assets/auth/code.svg";
+import laptopRobot from "@/assets/auth/laptop-robot.svg";
 
 export function Login() {
-  const { login } = authService();
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-
   return (
-    <div className="background flex flex-col justify-center items-center gap-2">
-      this is the login page
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <div>
-        <input
-          type={isPasswordHidden ? "password" : "text"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className="grid place-items-center size-full">
+      <div
+        className={clsx(
+          "flex flex-row p-3 gap-4",
+          "border-2 border-neutral-dark rounded-xl"
+        )}
+      >
+        <div className="basis-5/12 p-4">
+          <div className="text-xs">
+            <Logo />
+          </div>
 
-        <button onClick={() => setIsPasswordHidden(!isPasswordHidden)}>
-          <span className="material-symbols-rounded">
-            {isPasswordHidden ? "visibility" : "visibility_off"}
-          </span>
-        </button>
+          <div className="pt-12 pb-4 h-full">
+            <LoginForm />
+          </div>
+        </div>
+
+        <div className="hidden lg:flex grow relative basis-7/12">
+          <div className="m-2 gap-4 flex flex-col justify-center">
+            <img src={code} alt="Code" className="z-20 w-11/12" />
+            <img src={laptopRobot} alt="Laptop robot" className="z-20 w-5/6" />
+          </div>
+
+          <div
+            className={clsx(
+              "bg-primary rounded-xl",
+              "absolute bottom-0 right-0 h-full w-5/6"
+            )}
+          />
+        </div>
       </div>
-      <button onClick={() => login(username, password)}>Log in</button>
     </div>
   );
 }
