@@ -9,7 +9,7 @@ import { Navbar } from "./layouts/Navbar";
 
 function App() {
   return (
-    <div className="flex flex-col md:flex-row h-full relative">
+    <div className="flex flex-col md:flex-row h-screen relative">
       <BrowserRouter>
         <div className="hidden md:flex">
           <Sidebar />
