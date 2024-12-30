@@ -1,11 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "@/pages/Home";
-import { Login } from "./pages/Login";
-import { Sidebar } from "./layouts/Sidebar";
-import { Navbar } from "./layouts/Navbar";
+import { Home, Login, Register } from "@/pages/pages";
+import { Sidebar, Navbar } from "@/layouts/layouts";
 import "material-symbols";
 import "./App.scss";
-import { Register } from "./pages/Register";
 
 function App() {
   return (
