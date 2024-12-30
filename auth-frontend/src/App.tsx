@@ -18,11 +18,13 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="relative size-full p-6 overflow-y-auto">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+        <div className="relative flex-grow overflow-y-auto">
+          <div className="h-screen p-6">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </div>

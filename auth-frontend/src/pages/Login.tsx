@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 export function Login() {
   return (
-    <div className="grid place-items-center h-full">
+    <div className="grid place-items-center">
       <div
         className={clsx(
           "flex flex-row p-3 gap-4",
@@ -24,7 +24,7 @@ export function Login() {
           </div>
         </div>
 
-        <div className="hidden lg:flex relative">
+        <div className="hidden lg:flex relative h-full">
           <div className="gap-4 flex flex-col justify-center m-2 3xl:m-0">
             <img src={code} alt="Code" className="z-20 w-11/12 3xl:w-full" />
             <img src={laptopRobot} alt="Laptop Robot" className="z-20 w-5/6" />
