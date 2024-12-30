@@ -6,10 +6,10 @@ import clsx from "clsx";
 
 export function Login() {
   return (
-    <div className="grid place-items-center">
+    <div className="md:h-full grid place-items-center justify-center my-auto">
       <div
         className={clsx(
-          "flex flex-row p-3 gap-4",
+          "flex flex-row p-3 gap-4 w-fit",
           "3xl:gap-8 3xl:w-[1000px] 3xl:h-[760px]",
           "border-2 border-neutral-dark rounded-xl"
         )}

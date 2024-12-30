@@ -6,7 +6,7 @@ export function Home() {
   return (
     <div
       className={clsx(
-        "absolute top-[15%] justify-center",
+        "absolute md:top-[15%] justify-center",
         "flex-row flex gap-16 p-6 lg:inset-0 lg:place-items-center"
       )}
     >

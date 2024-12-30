@@ -5,6 +5,7 @@ import { Sidebar } from "./layouts/Sidebar";
 import { Navbar } from "./layouts/Navbar";
 import "material-symbols";
 import "./App.scss";
+import { Register } from "./pages/Register";
 
 function App() {
   return (
@@ -18,13 +19,12 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="relative flex-grow overflow-y-auto">
-          <div className="h-screen p-6">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
+        <div className="relative flex-grow overflow-y-auto p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
         </div>
       </BrowserRouter>
     </div>
