@@ -16,7 +16,7 @@ export function LoginForm() {
 
   return (
     <div
-      className={clsx("size-full place-items-center", "flex flex-col gap-16")}
+      className={clsx("size-full place-items-center", "flex flex-col gap-12")}
     >
       <div className="flex flex-col place-items-center gap-1">
         <div

@@ -1,8 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "@/pages/Home";
-import { Login } from "./pages/Login";
-import { Sidebar } from "./layouts/Sidebar";
-import { Navbar } from "./layouts/Navbar";
+import { Home, Login } from "@/pages/pages";
+import { Sidebar, Navbar } from "@/layouts/layouts";
 import "material-symbols";
 import "./App.scss";
 
@@ -18,13 +16,11 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="relative flex-grow overflow-y-auto">
-          <div className="h-screen p-6">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
+        <div className="relative flex flex-grow overflow-y-auto px-2 py-4">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
         </div>
       </BrowserRouter>
     </div>

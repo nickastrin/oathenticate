@@ -6,11 +6,10 @@ import clsx from "clsx";
 
 export function Login() {
   return (
-    <div className="grid place-items-center">
+    <div className="m-auto grid place-items-center md:h-full">
       <div
         className={clsx(
-          "flex flex-row p-3 gap-4",
-          "3xl:gap-8 3xl:w-[1000px] 3xl:h-[760px]",
+          "flex flex-row p-3 gap-4 w-fit max-w-3xl",
           "border-2 border-neutral-dark rounded-xl"
         )}
       >
@@ -18,16 +17,23 @@ export function Login() {
           <div className="text-xs">
             <Logo />
           </div>
-
           <div className="pt-12 pb-4 h-full">
             <LoginForm />
           </div>
         </div>
 
-        <div className="hidden lg:flex relative h-full">
-          <div className="gap-4 flex flex-col justify-center m-2 3xl:m-0">
-            <img src={code} alt="Code" className="z-20 w-11/12 3xl:w-full" />
-            <img src={laptopRobot} alt="Laptop Robot" className="z-20 w-5/6" />
+        <div className="hidden lg:block relative grow">
+          <div className="flex flex-col relative justify-center gap-6 h-full z-20">
+            <img
+              src={code}
+              alt="Code"
+              className="w-full h-auto object-contain"
+            />
+            <img
+              src={laptopRobot}
+              alt="Laptop Robot"
+              className="w-full h-auto object-contain"
+            />
           </div>
 
           <div
