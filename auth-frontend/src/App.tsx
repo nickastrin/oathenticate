@@ -16,7 +16,7 @@ function App() {
           <Navbar />
         </div>
 
-        <div className="relative flex-grow overflow-y-auto p-6">
+        <div className="relative flex flex-grow overflow-y-auto px-2 py-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
