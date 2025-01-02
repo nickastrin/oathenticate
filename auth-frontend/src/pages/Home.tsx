@@ -13,7 +13,7 @@ export function Home() {
       <div
         className={clsx(
           "flex flex-col gap-6",
-          "sm:max-w-xs md:max-w-md 3xl:max-w-2xl"
+          "max-w-xs sm:max-w-md 3xl:max-w-2xl"
         )}
       >
         <div
