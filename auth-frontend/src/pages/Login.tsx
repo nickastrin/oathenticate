@@ -10,14 +10,14 @@ export function Login() {
       <div
         className={clsx(
           "flex flex-row p-3 gap-4 w-fit max-w-3xl",
-          "border-2 border-neutral-dark rounded-xl"
+          "border-2 border-neutral-dark rounded-xl",
         )}
       >
         <div className="basis-5/12 p-4">
           <div className="text-xs">
             <Logo />
           </div>
-          <div className="pt-12 pb-4 h-full">
+          <div className="pt-14 pb-4 h-full">
             <LoginForm />
           </div>
         </div>
@@ -39,7 +39,7 @@ export function Login() {
           <div
             className={clsx(
               "bg-primary rounded-xl",
-              "absolute bottom-0 right-0 h-full w-5/6"
+              "absolute bottom-0 right-0 h-full w-5/6",
             )}
           />
         </div>

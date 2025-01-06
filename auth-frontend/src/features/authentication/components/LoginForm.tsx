@@ -18,11 +18,11 @@ export function LoginForm() {
     <div
       className={clsx("size-full place-items-center", "flex flex-col gap-12")}
     >
-      <div className="flex flex-col place-items-center gap-1">
+      <div className="flex flex-col place-items-center my-2 gap-1">
         <div
           className={clsx(
             "font-extrabold text-white leading-tight",
-            "text-3xl 3xl:text-[36px]"
+            "text-3xl 3xl:text-[36px]",
           )}
         >
           <span>Welcome back</span>
@@ -32,7 +32,7 @@ export function LoginForm() {
         <div
           className={clsx(
             "font-montserrat text-wrap text-neutral tracking-tighter",
-            "text-md 3xl:text-[22px]"
+            "text-md 3xl:text-[22px]",
           )}
         >
           <span>Sign in to your</span>
@@ -46,7 +46,7 @@ export function LoginForm() {
             const { email, password } = methods.getValues();
             await login(email, password);
           })}
-          className="flex flex-col w-full"
+          className="flex flex-col w-full mb-8"
         >
           <div className="flex flex-col gap-4">
             <FormInput name="email" icon="email" placeholder="Your email" />
@@ -61,7 +61,7 @@ export function LoginForm() {
             type="button"
             className={clsx(
               "mt-2 p-0 place-self-end",
-              "text-neutral-dark text-xs 3xl:text-sm bg-transparent"
+              "text-neutral-dark text-xs 3xl:text-sm bg-transparent",
             )}
           >
             Forgot your password?
@@ -72,7 +72,7 @@ export function LoginForm() {
             className={clsx(
               "mt-12 text-dark text-lg rounded-full py-3",
               "transition-all duration-300",
-              "bg-primary hover:bg-primary-light"
+              "bg-primary hover:bg-primary-light",
             )}
           >
             Sign in

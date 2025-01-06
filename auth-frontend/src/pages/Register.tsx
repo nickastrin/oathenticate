@@ -10,14 +10,14 @@ export function Register() {
       <div
         className={clsx(
           "flex flex-row p-3 gap-4 w-full md:w-fit max-w-3xl",
-          "border-2 border-neutral-dark rounded-xl"
+          "border-2 border-neutral-dark rounded-xl",
         )}
       >
         <div className="hidden lg:block relative grow">
           <div
             className={clsx(
               "flex flex-col relative h-full z-20",
-              "place-items-end justify-center gap-6"
+              "place-items-end justify-center gap-6",
             )}
           >
             <img
@@ -35,7 +35,7 @@ export function Register() {
           <div
             className={clsx(
               "bg-primary rounded-xl",
-              "absolute bottom-0 left-0 h-full w-11/12"
+              "absolute bottom-0 left-0 h-full w-11/12",
             )}
           />
         </div>
