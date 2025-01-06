@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, Login } from "@/pages/pages";
+import { Home, Login, Register } from "@/pages/pages";
 import { Sidebar, Navbar } from "@/layouts/layouts";
 import "material-symbols";
 import "./App.scss";
@@ -20,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
       </BrowserRouter>
