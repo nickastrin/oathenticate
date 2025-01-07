@@ -1,5 +1,5 @@
 import { Logo } from "@/components/generics/Logo";
-import { NavigationButton } from "@/components/navigation/NavigationButton";
+import { NavigationButton } from "@/components/navigation/navigation";
 
 export function Sidebar() {
   return (
