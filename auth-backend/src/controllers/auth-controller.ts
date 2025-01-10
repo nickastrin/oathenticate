@@ -40,6 +40,7 @@ export class AuthenticationController {
 
   public logout = async (req: Request, res: Response, next: NextFunction) => {
     const token = req.cookies?.refreshToken;
+    res.clearCookie("refreshToken");
 
     await this.authService
       .logout(token)

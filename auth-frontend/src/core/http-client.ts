@@ -51,8 +51,12 @@ api.interceptors.response.use(
       throw new Error("Network error: Please check your connection");
     }
 
+    const hasAuthenticationHeader = Boolean(
+      error.response.headers["www-authenticate"],
+    );
+
     // If the response status is 401, try renewing the token.
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && hasAuthenticationHeader) {
       try {
         const token = await renewToken();
 
