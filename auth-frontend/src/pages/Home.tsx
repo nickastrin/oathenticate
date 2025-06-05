@@ -16,7 +16,7 @@ export function Home() {
           "max-w-xs sm:max-w-md 3xl:max-w-2xl"
         )}
       >
-        <div
+        <h1
           className={clsx(
             "font-extrabold text-white leading-tight",
             "text-[48px] md:text-7xl 3xl:text-[96px]"
@@ -24,8 +24,8 @@ export function Home() {
         >
           <span>Let us take care of your security</span>
           <span className="text-primary-light"> .</span>
-        </div>
-        <div
+        </h1>
+        <h2
           className={clsx(
             "font-montserrat tracking-tighter text-neutral",
             "text-[24px] md:text-2xl 3xl:text-[40px] 3xl:!leading-[60px]"
@@ -35,7 +35,7 @@ export function Home() {
           <span className="font-bold text-accent"> unbreakable </span>
           <span>security to your app. </span>
           <span>The safety of your users is one click away.</span>
-        </div>
+        </h2>
 
         <NavLink
           to="/login"

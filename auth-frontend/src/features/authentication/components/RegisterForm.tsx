@@ -20,7 +20,7 @@ export function RegisterForm() {
       className={clsx("size-full place-items-center", "flex flex-col gap-10")}
     >
       <div className="flex flex-col text-center gap-1">
-        <div
+        <h1
           className={clsx(
             "font-extrabold text-white leading-tight",
             "text-3xl 3xl:text-[36px]"
@@ -28,9 +28,9 @@ export function RegisterForm() {
         >
           <span>Hey there</span>
           <span className="text-primary-light"> !</span>
-        </div>
+        </h1>
 
-        <div
+        <p
           className={clsx(
             "font-montserrat text-wrap text-neutral tracking-tighter",
             "text-md 3xl:text-[22px]"
@@ -39,7 +39,7 @@ export function RegisterForm() {
           <span>Your account is a few quick</span>
           <span className="font-bold text-accent"> steps </span>
           <span>away</span>
-        </div>
+        </p>
       </div>
 
       <FormProvider {...methods}>
@@ -79,12 +79,12 @@ export function RegisterForm() {
         </form>
       </FormProvider>
 
-      <div className="text-neutral-dark text-xs 3xl:text-sm mt-auto">
+      <p className="text-neutral-dark text-xs 3xl:text-sm mt-auto">
         <span> Already have an account? </span>
         <NavLink to="/login" className="p-0 bg-transparent text-accent">
           Sign in
         </NavLink>
-      </div>
+      </p>
     </div>
   );
 }
