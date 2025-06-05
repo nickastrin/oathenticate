@@ -1,5 +1,4 @@
-import { Logo } from "@/components/generics/generics";
-import { ExpandedNavigationButton } from "@/components/navigation/ExpandedNavigationButton";
+import { Logo, ExpandedNavigationButton } from "@/components";
 import clsx from "clsx";
 
 interface ExpandedSidebarProps {
@@ -18,7 +17,7 @@ export function ExpandedSidebar({
       <div
         className={clsx(
           "fixed top-0 left-0 z-30",
-          "flex flex-row size-full pointer-events-none",
+          "flex flex-row size-full pointer-events-none"
         )}
       >
         <div
@@ -26,14 +25,14 @@ export function ExpandedSidebar({
             "py-6 px-2 bg-dark rounded-r-xl flex flex-col",
             "transition-all duration-800 ease-in-out pointer-events-auto",
             { "translate-x-[-100%]": !show },
-            { "translate-x-0": show },
+            { "translate-x-0": show }
           )}
         >
           <div className="grid gap-1 mb-auto">
             <div
               className={clsx(
                 "flex flex-row px-4 mb-8 text-sm",
-                "justify-between place-items-center",
+                "justify-between place-items-center"
               )}
             >
               <Logo />
