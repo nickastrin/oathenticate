@@ -1,4 +1,4 @@
-import { Logo } from "@/components/generics/generics";
+import { Logo } from "@/components";
 import { useState } from "react";
 import { ExpandedSidebar } from "./ExpandedSidebar";
 import clsx from "clsx";
@@ -11,7 +11,7 @@ export function Navbar() {
       <div
         className={clsx(
           "flex flex-row place-items-center",
-          "w-full py-4 px-6 bg-darker gap-2",
+          "w-full py-4 px-6 bg-darker gap-2"
         )}
       >
         <button

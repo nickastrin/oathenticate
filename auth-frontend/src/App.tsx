@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, Login, Register } from "@/pages/pages";
-import { Sidebar, Navbar } from "@/layouts/layouts";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { Home, Login, Register } from "@/pages";
+import { Sidebar, Navbar } from "@/layouts";
 import "material-symbols";
 import "./App.scss";
 

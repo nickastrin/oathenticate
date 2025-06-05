@@ -1,5 +1,4 @@
-import { Logo } from "@/components/generics/Logo";
-import { NavigationButton } from "@/components/navigation/navigation";
+import { Logo, NavigationButton } from "@/components";
 
 export function Sidebar() {
   return (

@@ -1,7 +1,7 @@
-import { FormInput, FormPasswordInput } from "@/components/forms/forms";
-import { authService } from "@/features/authentication/services/auth-service";
+import { FormInput, FormPasswordInput } from "@/components";
+import { authService } from "@/features/authentication/services";
 import { FormProvider, useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import clsx from "clsx";
 
 interface RegisterForm {

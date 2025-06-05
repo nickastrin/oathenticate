@@ -1,4 +1,4 @@
-import { api } from "@/core/http-client";
+import { api } from "@/core";
 import { TokenResponse } from "@/core/types";
 
 export function authService() {
@@ -9,7 +9,7 @@ export function authService() {
         email,
         password,
       },
-      { withCredentials: true },
+      { withCredentials: true }
     );
 
     // Store the access token in local storage.

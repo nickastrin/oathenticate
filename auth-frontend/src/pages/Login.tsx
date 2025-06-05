@@ -1,5 +1,5 @@
-import { Logo } from "@/components/generics/generics";
-import { LoginForm } from "@/features/authentication/components/LoginForm";
+import { Logo } from "@/components";
+import { LoginForm } from "@/features/authentication/components";
 import code from "@/assets/auth/code.svg";
 import laptopRobot from "@/assets/auth/laptop-robot.svg";
 import clsx from "clsx";
@@ -10,7 +10,7 @@ export function Login() {
       <div
         className={clsx(
           "flex flex-row p-3 gap-4 w-fit max-w-3xl",
-          "border-2 border-neutral-dark rounded-xl",
+          "border-2 border-neutral-dark rounded-xl"
         )}
       >
         <div className="basis-5/12 p-4">
@@ -39,7 +39,7 @@ export function Login() {
           <div
             className={clsx(
               "bg-primary rounded-xl",
-              "absolute bottom-0 right-0 h-full w-5/6",
+              "absolute bottom-0 right-0 h-full w-5/6"
             )}
           />
         </div>
