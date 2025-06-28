@@ -29,9 +29,7 @@ export function verifyAuthentication(
     const message =
       error instanceof Error ? error.message : "Authentication failed.";
 
-    res
-      .status(status)
-      .json({ error: message })
-      .set("WWW-Authenticate", "Bearer realm='Authentication required'");
+    res.setHeader("www-authenticate", "Bearer realm='Authentication required'");
+    res.status(status).json({ error: message });
   }
 }
