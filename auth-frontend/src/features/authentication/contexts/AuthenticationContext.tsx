@@ -1,10 +1,16 @@
 import React from "react";
 import { useContext } from "react";
 
-interface AuthenticationContextProps {}
+interface AuthenticationContextProps {
+  user: string | null;
+  setUser: (user: string | null) => void;
+}
 
 export const AuthenticationContext =
-  React.createContext<AuthenticationContextProps>({});
+  React.createContext<AuthenticationContextProps>({
+    user: null,
+    setUser: () => {},
+  });
 
 export function useAuthenticationContext() {
   const context = useContext(AuthenticationContext);
