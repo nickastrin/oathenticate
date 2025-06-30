@@ -1,7 +1,8 @@
 import { FormInput, FormPasswordInput } from "@/components";
 import { authService } from "@/features/authentication/services";
 import { FormProvider, useForm } from "react-hook-form";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import { useAuthenticationContext } from "../contexts";
 import clsx from "clsx";
 
 interface LoginForm {
@@ -11,7 +12,9 @@ interface LoginForm {
 
 export function LoginForm() {
   const { login } = authService();
+  const { setUser } = useAuthenticationContext();
 
+  const navigate = useNavigate();
   const methods = useForm<LoginForm>();
 
   return (
@@ -22,7 +25,7 @@ export function LoginForm() {
         <h1
           className={clsx(
             "font-extrabold text-white leading-tight",
-            "text-3xl 3xl:text-[36px]"
+            "text-3xl 3xl:text-[36px]",
           )}
         >
           <span>Welcome back</span>
@@ -32,7 +35,7 @@ export function LoginForm() {
         <p
           className={clsx(
             "font-montserrat text-wrap text-neutral tracking-tighter",
-            "text-md 3xl:text-[22px]"
+            "text-md 3xl:text-[22px]",
           )}
         >
           <span>Sign in to your</span>
@@ -45,6 +48,9 @@ export function LoginForm() {
           onSubmit={methods.handleSubmit(async () => {
             const { email, password } = methods.getValues();
             await login(email, password);
+
+            setUser(email);
+            navigate("/");
           })}
           className="flex flex-col w-full mb-8"
         >
@@ -61,7 +67,7 @@ export function LoginForm() {
             type="button"
             className={clsx(
               "mt-2 p-0 place-self-end",
-              "text-neutral-dark text-xs 3xl:text-sm bg-transparent"
+              "text-neutral-dark text-xs 3xl:text-sm bg-transparent",
             )}
           >
             Forgot your password?
@@ -72,7 +78,7 @@ export function LoginForm() {
             className={clsx(
               "mt-12 text-dark text-lg rounded-full py-3",
               "transition-all duration-300",
-              "bg-primary hover:bg-primary-light"
+              "bg-primary hover:bg-primary-light",
             )}
           >
             Sign in
