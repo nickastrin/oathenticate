@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AuthenticationContext } from "./AuthenticationContext";
 import { AUTH_EVENTS } from "@/core";
 import { useNavigate } from "react-router";
+import { jwtDecode } from "jwt-decode";
 
 interface AuthenticationProviderProps {
   children: React.ReactNode;
@@ -12,12 +13,12 @@ export function AuthenticationProvider({
 }: AuthenticationProviderProps) {
   const navigate = useNavigate();
 
-  // For the purposes of this application, the user is just an email.
-  const [user, setUser] = useState<string | null>(null);
+  // For the purposes of this application, the logged in state is just a boolean.
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const handleFailedRenewal = () => {
-      setUser(null);
+      setIsLoggedIn(false);
       navigate("/login");
     };
 
@@ -34,8 +35,28 @@ export function AuthenticationProvider({
     };
   }, []);
 
+  useEffect(() => {
+    const initializeUser = () => {
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken) {
+        try {
+          jwtDecode(accessToken);
+
+          // TODO: In a later iteration, it might be a good idea to check the expiry here.
+          // If the token is expired, manually trigger a token renewal.
+          setIsLoggedIn(true);
+        } catch (error) {
+          console.error(error);
+          setIsLoggedIn(false);
+        }
+      }
+    };
+
+    initializeUser();
+  }, []);
+
   return (
-    <AuthenticationContext.Provider value={{ user, setUser }}>
+    <AuthenticationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       {children}
     </AuthenticationContext.Provider>
   );

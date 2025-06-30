@@ -12,7 +12,7 @@ interface LoginForm {
 
 export function LoginForm() {
   const { login } = authService();
-  const { setUser } = useAuthenticationContext();
+  const { setIsLoggedIn } = useAuthenticationContext();
 
   const navigate = useNavigate();
   const methods = useForm<LoginForm>();
@@ -49,7 +49,7 @@ export function LoginForm() {
             const { email, password } = methods.getValues();
             await login(email, password);
 
-            setUser(email);
+            setIsLoggedIn(true);
             navigate("/");
           })}
           className="flex flex-col w-full mb-8"

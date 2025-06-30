@@ -2,14 +2,14 @@ import React from "react";
 import { useContext } from "react";
 
 interface AuthenticationContextProps {
-  user: string | null;
-  setUser: (user: string | null) => void;
+  isLoggedIn: boolean;
+  setIsLoggedIn: (state: boolean) => void;
 }
 
 export const AuthenticationContext =
   React.createContext<AuthenticationContextProps>({
-    user: null,
-    setUser: () => {},
+    isLoggedIn: false,
+    setIsLoggedIn: () => {},
   });
 
 export function useAuthenticationContext() {
