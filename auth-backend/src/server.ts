@@ -12,6 +12,7 @@ const app = express();
 const corsOptions = {
   origin: config.FRONT_BASE_URI,
   credentials: true,
+  exposedHeaders: ["www-authenticate"],
 };
 
 app.use(cors(corsOptions));
