@@ -1,4 +1,4 @@
-import { FormInput, FormPasswordInput } from "@/components";
+import { FormInput, FormPasswordInput, Spinner } from "@/components";
 import { authService } from "@/features/authentication/services";
 import { FormProvider, useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router";
@@ -15,7 +15,12 @@ export function LoginForm() {
   const { setIsLoggedIn } = useAuthenticationContext();
 
   const navigate = useNavigate();
-  const methods = useForm<LoginForm>();
+  const methods = useForm<LoginForm>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   return (
     <div
@@ -55,7 +60,12 @@ export function LoginForm() {
           className="flex flex-col w-full mb-8"
         >
           <div className="flex flex-col gap-4">
-            <FormInput name="email" icon="email" placeholder="Your email" />
+            <FormInput
+              name="email"
+              icon="email"
+              placeholder="Your email"
+              required
+            />
             <FormPasswordInput
               name="password"
               icon="lock"
@@ -77,11 +87,11 @@ export function LoginForm() {
             type="submit"
             className={clsx(
               "mt-12 text-dark text-lg rounded-full py-3",
-              "transition-all duration-300",
+              "transition-all duration-300 flex justify-center",
               "bg-primary hover:bg-primary-light",
             )}
           >
-            Sign in
+            {methods.formState.isSubmitting ? <Spinner /> : "Sign in"}
           </button>
         </form>
       </FormProvider>
