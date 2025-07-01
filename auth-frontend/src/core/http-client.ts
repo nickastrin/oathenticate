@@ -1,6 +1,10 @@
 import axios from "axios";
 import { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from "axios";
-import { AxiosRequestConfigWithRetries, TokenResponse } from "./types";
+import {
+  AUTH_EVENTS,
+  AxiosRequestConfigWithRetries,
+  TokenResponse,
+} from "./types";
 
 const TOKEN_KEY = "accessToken";
 const MAX_RETRIES = 3;
@@ -70,6 +74,15 @@ api.interceptors.response.use(
       } catch (renewalError) {
         localStorage.removeItem(TOKEN_KEY);
         console.error("Token renewal failed:", renewalError);
+
+        // Dispatch an event to signal that the token renewal failed.
+        window.dispatchEvent(
+          new CustomEvent(AUTH_EVENTS.TOKEN_RENEWAL_FAILURE, {
+            detail: {
+              error: renewalError,
+            },
+          }),
+        );
       }
     }
 
