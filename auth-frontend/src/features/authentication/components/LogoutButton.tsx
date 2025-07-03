@@ -16,7 +16,7 @@ export function LogoutButton() {
         className={clsx(
           "flex flex-col py-1",
           "rounded-full text-center w-full",
-          "group-hover:bg-zinc-700",
+          "group-hover:bg-muted",
         )}
       >
         <span className="material-symbols-rounded"> logout </span>

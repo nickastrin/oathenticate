@@ -16,7 +16,7 @@ export function ExpandedLogoutButton() {
         className={clsx(
           "flex flex-row py-2 px-3 gap-3",
           "rounded-full place-items-center w-full",
-          "group-hover:bg-zinc-700",
+          "group-hover:bg-muted",
         )}
       >
         <span className="material-symbols-rounded">logout</span>

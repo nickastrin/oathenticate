@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { Home, Login, Register } from "@/pages";
+import { About, Home, Login, Register } from "@/pages";
 import { Sidebar, Navbar } from "@/layouts";
 import { AuthenticationProvider } from "./features/authentication/contexts";
 import "material-symbols";
@@ -23,6 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </div>
         </AuthenticationProvider>
