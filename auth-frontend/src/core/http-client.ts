@@ -1,10 +1,7 @@
 import axios from "axios";
 import { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from "axios";
-import {
-  AUTH_EVENTS,
-  AxiosRequestConfigWithRetries,
-  TokenResponse,
-} from "./types";
+import { AxiosRequestConfigWithRetries, TokenResponse } from "@/types";
+import { AUTH_EVENTS } from "@/features/authentication/types";
 
 const TOKEN_KEY = "accessToken";
 const MAX_RETRIES = 3;
