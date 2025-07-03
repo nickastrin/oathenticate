@@ -1,6 +1,7 @@
 import { Logo, ExpandedNavigationButton } from "@/components";
 import { ExpandedLogoutButton } from "@/features/authentication/components";
 import { useAuthenticationContext } from "@/features/authentication/contexts";
+import { SIDEBAR_ROUTES } from "@/types";
 import clsx from "clsx";
 
 interface ExpandedSidebarProps {
@@ -47,24 +48,15 @@ export function ExpandedSidebar({
               </button>
             </div>
 
-            <ExpandedNavigationButton
-              path="/"
-              icon="home"
-              label="Home"
-              onClick={onClose}
-            />
-            <ExpandedNavigationButton
-              path="/settings"
-              icon="settings"
-              label="Settings"
-              onClick={onClose}
-            />
-            <ExpandedNavigationButton
-              path="/about"
-              icon="groups"
-              label="About"
-              onClick={onClose}
-            />
+            {SIDEBAR_ROUTES.map((route) => (
+              <ExpandedNavigationButton
+                key={route.path}
+                path={route.path}
+                icon={route.icon}
+                label={route.name}
+                onClick={onClose}
+              />
+            ))}
           </div>
 
           {isLoggedIn ? (
