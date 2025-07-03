@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { AuthenticationContext } from "./AuthenticationContext";
-import { AUTH_EVENTS } from "@/core";
 import { useNavigate } from "react-router";
 import { jwtDecode } from "jwt-decode";
+import { AUTH_EVENTS } from "../types";
 
 interface AuthenticationProviderProps {
   children: React.ReactNode;
