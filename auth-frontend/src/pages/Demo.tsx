@@ -4,20 +4,20 @@ export function Demo() {
   return (
     <div
       className={clsx(
-        "flex flex-col p-6 w-full gap-12 max-w-4xl",
+        "flex flex-col p-6 w-full gap-8 max-w-4xl",
         "justify-center place-items-center m-auto relative"
       )}
     >
       <div
         className={clsx(
           "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
-          "size-96 border rounded-full border-dotted border-8 opacity-5 border-primary"
+          "size-96 border rounded-full border-dotted -z-20 border-8 border-primary"
         )}
       ></div>
 
       <h1 className="text-center">
-        <p className="text-4xl mb-2 text-neutral"> Your token is valid for: </p>
-        <strong className="text-8xl"> 29m 08s </strong>
+        <p className="text-2xl mb-2 text-neutral"> Your token is valid for: </p>
+        <strong className="text-7xl text-neutral-light"> 29m 08s </strong>
       </h1>
       <button
         className={clsx(
