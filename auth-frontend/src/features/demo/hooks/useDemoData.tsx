@@ -28,10 +28,10 @@ export function useDemoData() {
 
         const expiresAt = decoded.exp * 1000;
         const now = Date.now();
-        const millisecondsLeft = Math.max(0, expiresAt - now);
+        const totalSeconds = Math.max(0, expiresAt - now) / 1000;
 
-        const minutesLeft = Math.floor(millisecondsLeft / 60000);
-        const secondsLeft = Math.floor((millisecondsLeft % 60000) / 1000);
+        const minutesLeft = Math.floor(totalSeconds / 60);
+        const secondsLeft = Math.floor(totalSeconds % 60);
 
         console.log(
           `Token expires in ${minutesLeft} minutes and ${secondsLeft} seconds`,
