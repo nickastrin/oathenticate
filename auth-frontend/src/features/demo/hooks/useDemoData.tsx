@@ -20,7 +20,22 @@ export function useDemoData() {
     if (accessToken) {
       try {
         const decoded = jwtDecode(accessToken);
-        console.error(decoded);
+
+        if (!decoded?.exp) {
+          console.error("Token doesn't have expiration time");
+          return;
+        }
+
+        const expiresAt = decoded.exp * 1000;
+        const now = Date.now();
+        const millisecondsLeft = Math.max(0, expiresAt - now);
+
+        const minutesLeft = Math.floor(millisecondsLeft / 60000);
+        const secondsLeft = Math.floor((millisecondsLeft % 60000) / 1000);
+
+        console.log(
+          `Token expires in ${minutesLeft} minutes and ${secondsLeft} seconds`,
+        );
       } catch (error) {
         console.error(error);
       }

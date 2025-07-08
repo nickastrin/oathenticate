@@ -19,7 +19,7 @@ export function AuthenticationProvider({
   useEffect(() => {
     const handleFailedRenewal = () => {
       setIsLoggedIn(false);
-      navigate("/login");
+      navigate("/login", { replace: true });
     };
 
     window.addEventListener(
