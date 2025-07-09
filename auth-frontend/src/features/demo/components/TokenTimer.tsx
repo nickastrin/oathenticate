@@ -17,14 +17,14 @@ export function TokenTimer({
     <>
       {isTimerRunning ? (
         <div className="text-center">
-          <p className="text-xl mb-2 text-neutral font-montserrat">
+          <p className="text-xl mb-2 font-montserrat">
             Your token is <strong> valid </strong> for:
           </p>
           <TokenCountdown duration={duration} />
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-2xl mb-4 font-bold text-neutral font-montserrat">
+          <p className="text-2xl mb-4 font-bold font-montserrat">
             Your token is <span className="text-accent">invalid</span>
           </p>
           <p className="text-xl mb-8 text-neutral"> Please refresh it </p>
