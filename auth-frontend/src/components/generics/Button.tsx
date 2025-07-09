@@ -12,7 +12,7 @@ export function Button({ label, isLoading = false, onClick }: ButtonProps) {
     <button
       className={clsx(
         "text-dark font-semibold text-2xl",
-        "w-fit rounded-full py-6 px-10",
+        "w-fit rounded-full py-4 px-10",
         "bg-primary hover:bg-primary-light",
         "md:py-4 md:text-xl text-center",
         "transition-all duration-300",

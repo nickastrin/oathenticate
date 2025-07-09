@@ -8,6 +8,7 @@ export const SIDEBAR_ROUTES = [
     path: "/demo",
     icon: "api",
     name: "Demo",
+    private: true,
   },
   {
     path: "/about",
