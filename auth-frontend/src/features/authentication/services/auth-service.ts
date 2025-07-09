@@ -1,5 +1,5 @@
 import { api } from "@/core";
-import { TokenResponse } from "@/core/types";
+import { TokenResponse } from "@/types";
 
 export function authService() {
   const login = async (email: string, password: string) => {

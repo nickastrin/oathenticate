@@ -1,7 +1,33 @@
-export function Spinner() {
+import clsx from "clsx";
+
+type SpinnerSize = "sm" | "md" | "lg" | "xl";
+type SpinnerColor = "dark" | "light" | "primary" | "accent";
+
+interface SpinnerProps {
+  size?: SpinnerSize;
+  color?: SpinnerColor;
+}
+
+const sizeResolver = {
+  sm: "w-4 h-4",
+  md: "w-7 h-7",
+  lg: "w-9 h-9",
+  xl: "w-11 h-11",
+} as const;
+
+const colorResolver = {
+  dark: "text-dark",
+  light: "text-neutral-light",
+  primary: "text-primary",
+  accent: "text-accent",
+} as const;
+
+export function Spinner({ size = "md", color = "dark" }: SpinnerProps) {
   return (
     <svg
-      className="size-7 animate-spin text-dark fill-primary"
+      className={clsx("animate-spin", sizeResolver[size], colorResolver[color])}
+      role="status"
+      aria-label="Loading"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

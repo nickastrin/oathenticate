@@ -7,7 +7,7 @@ import { TokenModel, TokenPair } from "@interfaces/interfaces";
 import { NotFoundError, ForbiddenError } from "@interfaces/errors/errors";
 
 // Expiration dates (in minutes).
-const JWT_EXPIRATION = 2;
+const JWT_EXPIRATION = 5;
 const REFRESH_EXPIRATION = 15;
 
 export class TokenService {

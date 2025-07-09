@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router";
 import svg from "@/assets/robot.svg";
 import clsx from "clsx";
+import { Button } from "@/components";
 
 export function Home() {
+  const navigate = useNavigate();
+
   return (
     <div
       className={clsx(
@@ -27,7 +30,7 @@ export function Home() {
         </h1>
         <h2
           className={clsx(
-            "font-montserrat tracking-tighter text-neutral",
+            "font-montserrat tracking-tighter text-neutral mb-12",
             "text-[24px] md:text-2xl 3xl:text-[40px] 3xl:!leading-[60px]"
           )}
         >
@@ -37,18 +40,12 @@ export function Home() {
           <span>The safety of your users is one click away.</span>
         </h2>
 
-        <NavLink
-          to="/login"
-          className={clsx(
-            "text-dark font-semibold text-2xl",
-            "w-fit rounded-full py-6 px-10 mt-12",
-            "bg-primary hover:bg-primary-light",
-            "md:py-4 md:text-xl text-center",
-            "transition-all duration-300"
-          )}
-        >
-          Get started
-        </NavLink>
+        <Button
+          label="Get Started"
+          onClick={() => {
+            navigate("/login");
+          }}
+        />
       </div>
 
       <div className="group relative hidden lg:block place-items-center">

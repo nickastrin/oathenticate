@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { About, Home, Login, Register } from "@/pages";
+import { About, Demo, Home, Login, Register } from "@/pages";
 import { Sidebar, Navbar } from "@/layouts";
 import { AuthenticationProvider } from "./features/authentication/contexts";
 import "material-symbols";
@@ -21,9 +21,11 @@ function App() {
           <div className="relative flex flex-grow overflow-y-auto px-2 py-4">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/demo" element={<Demo />} />
+              <Route path="/about" element={<About />} />
+
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/about" element={<About />} />
             </Routes>
           </div>
         </AuthenticationProvider>

@@ -11,14 +11,18 @@ export function Sidebar() {
       <div className="grid gap-8 place-items-center mb-auto">
         <Logo />
 
-        {SIDEBAR_ROUTES.map((route) => (
-          <NavigationButton
-            key={route.path}
-            path={route.path}
-            icon={route.icon}
-            label={route.name}
-          />
-        ))}
+        {SIDEBAR_ROUTES.map((route) => {
+          return (
+            (isLoggedIn || !route.private) && (
+              <NavigationButton
+                key={route.path}
+                path={route.path}
+                icon={route.icon}
+                label={route.name}
+              />
+            )
+          );
+        })}
       </div>
 
       {isLoggedIn ? (
