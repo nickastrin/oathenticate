@@ -33,14 +33,8 @@ export function TokenCountdown({ duration }: TokenCountdownProps) {
   };
 
   return (
-    <div className="text-center">
-      <p className="text-xl mb-2 text-neutral font-montserrat">
-        Your token is <strong> valid </strong> for:
-      </p>
-
-      <h1 className="text-7xl text-neutral-light font-bold">
-        {parseMinutes(duration.minutes)} {parseSeconds(duration.seconds)}
-      </h1>
-    </div>
+    <h1 className="text-7xl text-neutral-light font-bold">
+      {parseMinutes(duration.minutes)} {parseSeconds(duration.seconds)}
+    </h1>
   );
 }

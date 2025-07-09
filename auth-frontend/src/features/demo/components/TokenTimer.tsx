@@ -1,7 +1,6 @@
-import clsx from "clsx";
 import { Duration } from "../types";
 import { TokenCountdown } from "./TokenCountdown";
-import { TokenInvalid } from "./TokenInvalid";
+import { Button } from "@/components";
 
 interface TokenTimerProps {
   duration: Duration;
@@ -17,24 +16,22 @@ export function TokenTimer({
   return (
     <>
       {isTimerRunning ? (
-        <TokenCountdown duration={duration} />
+        <div className="text-center">
+          <p className="text-xl mb-2 text-neutral font-montserrat">
+            Your token is <strong> valid </strong> for:
+          </p>
+          <TokenCountdown duration={duration} />
+        </div>
       ) : (
-        <TokenInvalid />
+        <div className="text-center">
+          <p className="text-2xl mb-4 font-bold text-neutral font-montserrat">
+            Your token is <span className="text-accent">invalid</span>
+          </p>
+          <p className="text-xl mb-8 text-neutral"> Please refresh it </p>
+        </div>
       )}
 
-      <button
-        className={clsx(
-          "text-dark font-semibold text-2xl",
-          "w-fit rounded-full py-6 px-10",
-          "bg-primary hover:bg-primary-light",
-          "md:py-4 md:text-xl text-center",
-          "transition-all duration-300",
-          "flex flex-center gap-2"
-        )}
-        onClick={onRefresh}
-      >
-        <span>Refresh</span>
-      </button>
+      <Button label="Refresh" onClick={onRefresh} />
     </>
   );
 }
