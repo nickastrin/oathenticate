@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { demoService } from "../services";
 import { jwtDecode } from "jwt-decode";
 
+const service = demoService();
+
 export function useDemoData() {
-  const service = demoService();
   const [isLoading, setIsLoading] = useState(true);
+  const [tokenDuration, setTokenDuration] = useState({
+    minutes: 0,
+    seconds: 0,
+  });
+
   const fetchProtectedData = async () => {
     try {
       setIsLoading(true);
@@ -15,7 +21,7 @@ export function useDemoData() {
     }
   };
 
-  const extractTokenValidity = () => {
+  const calculateTokenDuration = () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       try {
@@ -30,12 +36,10 @@ export function useDemoData() {
         const now = Date.now();
         const totalSeconds = Math.max(0, expiresAt - now) / 1000;
 
-        const minutesLeft = Math.floor(totalSeconds / 60);
-        const secondsLeft = Math.floor(totalSeconds % 60);
-
-        console.log(
-          `Token expires in ${minutesLeft} minutes and ${secondsLeft} seconds`,
-        );
+        setTokenDuration({
+          minutes: Math.floor(totalSeconds / 60),
+          seconds: Math.floor(totalSeconds % 60),
+        });
       } catch (error) {
         console.error(error);
       }
@@ -46,16 +50,16 @@ export function useDemoData() {
     localStorage.removeItem("accessToken");
     await fetchProtectedData();
 
-    const newTokenValidity = extractTokenValidity();
-    return newTokenValidity;
+    calculateTokenDuration();
   };
 
   useEffect(() => {
-    fetchProtectedData().then(() => extractTokenValidity());
+    fetchProtectedData().then(() => calculateTokenDuration());
   }, []);
 
   return {
     isLoading,
+    tokenDuration,
     refreshAccessToken,
   };
 }
