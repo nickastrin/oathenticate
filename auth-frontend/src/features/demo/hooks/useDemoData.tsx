@@ -57,6 +57,33 @@ export function useDemoData() {
     fetchProtectedData().then(() => calculateTokenDuration());
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTokenDuration((prev) => {
+        // Handle the case where the token has expired.
+        if (prev.minutes <= 0 && prev.seconds <= 0) {
+          clearInterval(interval);
+          return { minutes: 0, seconds: 0 };
+        }
+
+        const reducedSeconds = prev.seconds - 1;
+        if (reducedSeconds < 0) {
+          return {
+            minutes: prev.minutes - 1,
+            seconds: 59,
+          };
+        }
+
+        return {
+          minutes: prev.minutes,
+          seconds: reducedSeconds,
+        };
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return {
     isLoading,
     tokenDuration,
