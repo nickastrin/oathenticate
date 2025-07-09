@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { demoService } from "../services";
 import { jwtDecode } from "jwt-decode";
+import { Duration } from "../types";
 
 const service = demoService();
 
 export function useDemoData() {
   const [isLoading, setIsLoading] = useState(true);
-  const [tokenDuration, setTokenDuration] = useState({
+  const [tokenDuration, setTokenDuration] = useState<Duration>({
     minutes: 0,
     seconds: 0,
   });
