@@ -16,9 +16,10 @@ export function useDemoData() {
     try {
       setIsLoading(true);
       await service.getProtected();
-      setIsLoading(false);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
