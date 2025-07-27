@@ -3,8 +3,20 @@ import { LoginForm } from "@/features/authentication/components";
 import code from "@/assets/auth/code.svg";
 import laptopRobot from "@/assets/auth/laptop-robot.svg";
 import clsx from "clsx";
+import { useAuthenticationContext } from "@/features/authentication/contexts";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export function Login() {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuthenticationContext();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className="m-auto grid place-items-center md:h-full">
       <div
