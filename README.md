@@ -4,7 +4,6 @@
 
 Built with **React + TypeScript + Tailwind** on the frontend and **Express + TypeScript** on the backend, using MongoDB for storing the tokens and the users.
 
----
 
 ## 🚀 Key Features
 
@@ -26,7 +25,6 @@ Built with **React + TypeScript + Tailwind** on the frontend and **Express + Typ
 - Responsive UI with Tailwind CSS.
 - Optimized performance with code splitting.
 - Modern React hooks architecture.
----
 
 ## 🧰 Tech Stack
 
@@ -40,8 +38,6 @@ Built with **React + TypeScript + Tailwind** on the frontend and **Express + Typ
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 - [bcrypt](https://github.com/kelektiv/node.bcrypt.js)
 - [mongoose](https://mongoosejs.com)
-
----
 
 ## 📦 Installation
 
