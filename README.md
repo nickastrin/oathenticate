@@ -7,7 +7,7 @@ Built with **React + TypeScript + Tailwind** on the frontend and **Express + Typ
 
 ## 🚀 Key Features
 
-### 🔄 **Rotating Tokens**:
+### 🔄 **Rotating Tokens**
 - Configurable token lifespan and refresh windows.
 - Prevent token reuse and session hijacking with automatic token renewal.
 - JWT-based authentication with access/refresh token rotation.
@@ -15,12 +15,12 @@ Built with **React + TypeScript + Tailwind** on the frontend and **Express + Typ
 - Long-lived refresh tokens in HTTP-only cookies.
 - Secure token revocation.
 
-### 🏗️ **Architecture**:
+### 🏗️ **Architecture**
 - Clear separation of concerns, easy to extend and to maintain.
 - Easily can be pluged into other services to improve the security of an app.
 - TypeScript interfaces for all core components.
 
-### 🌐 **Frontend**:
+### 🌐 **Frontend**
 - Smooth UX through the seamless handling of token renewal with retries of the original request.
 - Responsive UI with Tailwind CSS.
 - Optimized performance with code splitting.
@@ -57,9 +57,10 @@ npm i
 ### 2. Configure environmental variables 
 Create a **.env** / **.env.development** file to hold the environmental variables for the application.
 
-#### **NOTE**: A MongoDB URI is needed, in order for the connection to be established.
+**NOTE**: A MongoDB URI is needed, in order for the connection to be established.
 
 ⚠️ For production deployments, ensure HTTPS is used and secrets are stored securely (e.g. via a vault or secret manager).
+
 An example .env file:
 
 ```bash
