@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router";
+import { Button } from "@/components";
+import { useAuthenticationContext } from "@/features/authentication/contexts";
 import svg from "@/assets/robot.svg";
 import clsx from "clsx";
-import { Button } from "@/components";
 
 export function Home() {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuthenticationContext();
 
   return (
     <div
@@ -40,12 +42,14 @@ export function Home() {
           <span>The safety of your users is one click away.</span>
         </h2>
 
-        <Button
-          label="Get Started"
-          onClick={() => {
-            navigate("/login");
-          }}
-        />
+        {!isLoggedIn && (
+          <Button
+            label="Get Started"
+            onClick={() => {
+              navigate("/login");
+            }}
+          />
+        )}
       </div>
 
       <div

@@ -3,8 +3,20 @@ import shelfRobot from "@/assets/auth/shelf-robot.svg";
 import shelfComputer from "@/assets/auth/shelf-computer.svg";
 import { RegisterForm } from "@/features/authentication/components";
 import clsx from "clsx";
+import { useNavigate } from "react-router";
+import { useAuthenticationContext } from "@/features/authentication/contexts";
+import { useEffect } from "react";
 
 export function Register() {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuthenticationContext();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className={clsx("m-auto grid place-items-center", "w-fit md:h-full")}>
       <div
