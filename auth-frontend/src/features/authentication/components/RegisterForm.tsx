@@ -23,7 +23,7 @@ export function RegisterForm() {
         <h1
           className={clsx(
             "font-extrabold text-white leading-tight",
-            "text-3xl 3xl:text-[36px]",
+            "text-3xl 3xl:text-4xl",
           )}
         >
           <span>Hey there</span>
@@ -33,7 +33,7 @@ export function RegisterForm() {
         <p
           className={clsx(
             "font-montserrat text-wrap text-neutral tracking-tighter",
-            "text-md 3xl:text-[22px]",
+            "text-md 3xl:text-lg",
           )}
         >
           <span>Your account is a few quick</span>
