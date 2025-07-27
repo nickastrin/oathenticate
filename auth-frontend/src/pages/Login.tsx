@@ -10,7 +10,7 @@ export function Login() {
       <div
         className={clsx(
           "flex flex-row p-3 gap-4 w-fit max-w-3xl",
-          "border-2 border-neutral-dark rounded-xl"
+          "border-2 border-neutral-dark rounded-xl",
         )}
       >
         <div className="basis-5/12 p-4">
@@ -22,8 +22,13 @@ export function Login() {
           </div>
         </div>
 
-        <div className="hidden lg:block relative grow">
-          <div className="flex flex-col relative justify-center gap-6 h-full z-20">
+        <div className="hidden lg:block relative grow min-w-96">
+          <div
+            className={clsx(
+              "flex flex-col relative h-full z-20",
+              "place-items-end justify-center gap-6",
+            )}
+          >
             <img
               src={code}
               alt="Code"
@@ -39,7 +44,7 @@ export function Login() {
           <div
             className={clsx(
               "bg-primary rounded-xl",
-              "absolute bottom-0 right-0 h-full w-5/6"
+              "absolute bottom-0 right-0 h-full w-5/6",
             )}
           />
         </div>

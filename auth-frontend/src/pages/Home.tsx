@@ -9,20 +9,20 @@ export function Home() {
   return (
     <div
       className={clsx(
-        "absolute md:top-[15%] justify-center",
-        "flex-row flex gap-16 p-6 lg:inset-0 lg:place-items-center"
+        "flex-row flex gap-16 p-6 max-w-4xl 3xl:max-w-6xl w-full",
+        "lg:inset-0 place-items-center m-auto justify-center",
       )}
     >
       <div
         className={clsx(
           "flex flex-col gap-6",
-          "max-w-xs sm:max-w-md 3xl:max-w-2xl"
+          "max-w-xs sm:max-w-md 3xl:max-w-2xl",
         )}
       >
         <h1
           className={clsx(
             "font-extrabold text-white leading-tight",
-            "text-[48px] md:text-7xl 3xl:text-[96px]"
+            "text-5xl sm:text-7xl 3xl:text-8xl",
           )}
         >
           <span>Let us take care of your security</span>
@@ -31,7 +31,7 @@ export function Home() {
         <h2
           className={clsx(
             "font-montserrat tracking-tighter text-neutral mb-12",
-            "text-[24px] md:text-2xl 3xl:text-[40px] 3xl:!leading-[60px]"
+            "text-xl md:text-2xl 3xl:text-3xl 3xl:!leading-[60px]",
           )}
         >
           <span>Add</span>
@@ -48,19 +48,36 @@ export function Home() {
         />
       </div>
 
-      <div className="group relative hidden lg:block place-items-center">
-        <img
-          src={svg as string}
-          className="z-20 w-2/3 3xl:w-full"
-          alt={"Robot"}
-        />
+      <div
+        className={clsx(
+          "group relative hidden lg:block place-items-center",
+          "w-1/2 3xl:w-2/3 aspect-square",
+        )}
+      >
+        <img src={svg as string} className="z-20 w-full" alt={"Robot"} />
+
         <div
           className={clsx(
             "transition-all duration-300",
-            "w-2/3 3xl:w-full aspect-square rounded-full",
+            "w-full aspect-square rounded-full",
             "absolute -z-10 top-[10%] left-1/2 -translate-x-1/2",
             "group-hover:shadow-2xl group-hover:shadow-primary-light",
-            "bg-primary group-hover:bg-primary-light"
+            "bg-primary group-hover:bg-primary-light",
+          )}
+        />
+      </div>
+
+      <div className="block lg:hidden">
+        <div
+          className={clsx(
+            "fixed bottom-[-10%] right-0 w-52",
+            "aspect-square bg-primary-light/10 rounded-full blur-3xl",
+          )}
+        />
+        <div
+          className={clsx(
+            "fixed bottom-[20%] right-[-10%] w-40",
+            "aspect-square bg-accent/10 rounded-full blur-3xl",
           )}
         />
       </div>
