@@ -17,7 +17,9 @@ interface Config {
   PORT: string;
   MONGO_URI: string;
   JWT_SECRET: string;
+  JWT_EXPIRATION: number;
   REFRESH_SECRET: string;
+  REFRESH_EXPIRATION: number;
   FRONT_BASE_URI: string;
 }
 
@@ -25,7 +27,9 @@ const config: Config = {
   PORT: process.env.PORT ?? "5000",
   MONGO_URI: process.env.MONGO_URI ?? "",
   JWT_SECRET: process.env.JWT_SECRET ?? "R4ND0MP4SSW0RD",
+  JWT_EXPIRATION: parseInt(process.env.JWT_EXPIRATION ?? "5"),
   REFRESH_SECRET: process.env.REFRESH_SECRET ?? "R4ND0MP4SSW0RD",
+  REFRESH_EXPIRATION: parseInt(process.env.REFRESH_EXPIRATION ?? "15"),
   FRONT_BASE_URI: process.env.FRONT_BASE_URI ?? "http://localhost:3000",
 };
 
