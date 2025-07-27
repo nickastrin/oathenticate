@@ -4,6 +4,3 @@
 *.jpeg binary
 *.webp binary
 *.gif binary
-
-# Auto detect text files and perform LF normalization
-* eol=lf
