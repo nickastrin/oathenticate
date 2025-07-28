@@ -67,7 +67,7 @@ An example .env file:
 # Environmental variables
 PORT = '5000'
 FRONT_BASE_URI = 'http://localhost:3000'
-MONGO_URI = YOUR_MONGO_URI"
+MONGO_URI = 'YOUR_MONGO_URI'
 
 JWT_SECRET = 'YOUR_JWT_SECRET_HERE'
 REFRESH_SECRET = 'YOUR_REFRESH_SECRET_HERE'
